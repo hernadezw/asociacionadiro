@@ -1,0 +1,59 @@
+{% extends 'baseDashboard.html' %}
+
+{% block content %}
+<h1>Bienvenido al Dashboard</h1>
+<div class="container mt-5">
+    <h2>Dashboard de Proyectos</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Total de Proyectos</h4>
+            <canvas id="proyectosChart"></canvas>
+        </div>
+    </div>
+</div>
+
+    <!-- Pasar los datos desde Django a JavaScript -->
+    <script id="datos-json" type="application/json">
+        {{ datos|json_script:"datos" }}
+    </script>
+
+<!-- Pasar los datos desde Django a JavaScript -->
+<script id="datos-json" type="application/json">
+    {{ datos|json_script:"datos" }}
+</script>
+
+<script>
+    // Verificar que los datos estén disponibles en JavaScript
+    var datos = JSON.parse(document.getElementById('datos-json').textContent);
+    console.log(datos);  // Agrega un console.log para verificar los datos en la consola del navegador
+
+    // Configurar el gráfico de barras
+    var ctx = document.getElementById('proyectosChart').getContext('2d');
+    var proyectosChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: datos.labels,  // Etiquetas desde Django (en este caso, solo "Proyectos")
+            datasets: [{
+                label: 'Cantidad de Proyectos',
+                data: datos.data,  // Cantidad de proyectos desde Django
+                backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+<div class="row">
+
+    <div class="">
+
+    
+</div>
+{% endblock %}

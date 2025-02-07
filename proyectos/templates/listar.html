@@ -1,0 +1,119 @@
+{% extends 'baseDashboard.html' %}
+
+{% block content %}
+<h1>Proyectos almacenados</h1>
+
+<div class="row">
+    <table class="table" id="#proyectosTabla" >
+      <!-- Campo de búsqueda -->
+     <input type="text" id="search" placeholder="Buscar proyectos...">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre Poroyecto</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Categoría</th>
+            <th scope="col">Opciones</th>            
+            <th scope="col">Publicar</th>
+            
+          </tr>
+
+        </thead>
+        <tbody>
+            {% for i in proyecto %}
+          <tr>
+            <td scope="row">{{forloop.counter }}</td>
+            <td>{{ i.nombre }} </td>
+            <td>{{ i.descripcion|truncatewords:8 }}</td>
+            <td>{{ i.categoria }}</td>
+            <td> 
+                 <a class="edit" title="Edit" data-toggle="tooltip" href="{% url 'actualizar' i.pk %}" ><i class="material-icons"></i></a>
+              
+                 <a href="{% url 'actualizar' i.pk %}">
+                 <span class="material-icons" style="color: rgb(240, 8, 8);" >
+                    delete
+                    </span></a>
+            </td>
+            
+            <td> 
+                {% if item.publicado %}
+                <a href="{% url 'no_publicar' i.pk %}">Dejar de Publicar</a>
+                {% else %}
+                    <a href="{% url 'publicar' i.pk %}">Publicar</a>
+                {% endif %} </td>
+          </tr>
+              <!-- Mostrar botón según estado -->
+            
+ 
+      {% endfor %}
+          
+      
+        </tbody>
+      </table>
+
+   
+  
+      
+     <!-- JavaScript para la búsqueda -->
+     <script>
+      document.getElementById('search').addEventListener('keyup', function () {
+          const filter = this.value.toLowerCase();
+          const rows = document.querySelectorAll('#proyectosTabla tbody tr');
+
+          rows.forEach(row => {
+              const text = row.textContent.toLowerCase();
+              row.style.display = text.includes(filter) ? '' : 'none';
+          });
+      });
+  </script>
+
+  <script>
+    $(document).ready(function () {
+        // Inicializar DataTable con paginación
+        const table = $('#proyectosTabla').DataTable({
+            language: {
+                search: "Buscar:",
+                lengthMenu: "Mostrar _MENU_ proyectos por página",
+                zeroRecords: "No se encontraron proyectos",
+                info: "Mostrando página _PAGE_ de _PAGES_",
+                infoEmpty: "No hay proyectos disponibles",
+                infoFiltered: "(filtrado de _MAX_ proyectos totales)",
+                paginate: {
+                    first: "Primero",
+                    last: "Último",
+                    next: "Siguiente",
+                    previous: "Anterior"
+                }
+            },
+            paging: true, // Habilitar paginación
+            pageLength: 2, // Número de proyectos por página
+            lengthMenu: [5, 10, 25, 50], // Opciones para el selector de filas por página
+        });
+
+        // Agregar filtros individuales a cada columna
+        $('#proyectosTabla thead tr:eq(1) th').each(function (i) {
+            $('input', this).on('keyup change', function () {
+                if (table.column(i).search() !== this.value) {
+                    table
+                        .column(i)
+                        .search(this.value)
+                        .draw();
+                }
+            });
+        });
+    });
+</script>
+    <h1>Lista de Items</h1>
+    <ul>
+       
+    
+           
+         
+
+         
+    </ul> 
+</div>
+  
+
+</div>
+{% endblock %}

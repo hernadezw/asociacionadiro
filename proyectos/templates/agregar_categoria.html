@@ -1,0 +1,65 @@
+{% extends 'baseDashboard.html' %}
+
+{% block content %}
+
+<h1>Agregar Categoría</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <div>
+        {{ form.as_p }}
+    </div>
+    <button type="submit" class="btn btn-primary">Agregar Categoría</button>
+</form>
+
+<h2>Categorías existentes:</h2>
+
+
+
+<table class="table" id="#proyectosTabla" >
+    <!-- Campo de búsqueda -->
+   <input type="text" id="search" placeholder="Buscar Categorías...">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre Categoría</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Opciones</th>            
+     
+          
+        </tr>
+
+      </thead>
+      <tbody>
+          {% for i in categorias %}
+        <tr>
+          <td scope="row">{{forloop.counter }}</td>
+          <td>{{ i.nombre }} </td>
+          <td>{{ i.descripcion|truncatewords:8 }}</td>
+       
+          <td> 
+               
+               <a href="{% url 'eliminar_categoria' i.id %}" onclick="return confirm('¿Estás seguro de eliminar esta categoría?')">
+               <span class="material-icons" style="color: rgb(240, 8, 8);" >
+                  delete
+                  </span></a>
+          </td>
+          
+     
+        </tr>
+            <!-- Mostrar botón según estado -->
+          
+
+    {% endfor %}
+        
+    
+      </tbody>
+    </table>
+
+  
+
+    
+  
+
+
+{% endblock %}

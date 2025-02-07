@@ -1,0 +1,55 @@
+{% extends 'baseDashboard.html' %}
+
+{% block content %}
+<h1>Agregrar nuevo proyecto</h1>
+
+<div class="row">
+  
+    <div>
+       Crear Proyecto
+       <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <label for="id_nombre">Nombre:</label>
+            {{ form.nombre }}
+        </div>
+        <div>
+            <label for="id_descripcion">Descripción:</label>
+            {{ form.descripcion }}
+        </div>
+        <div>
+            <label for="id_imagen">Imagen:</label>
+            {{ form.imagen }}
+        </div>
+        <div>
+            <label for="id_publicar">Publicar:</label>
+            {{ form.publicar }}
+        </div>
+        <div>
+            <label for="id_fecha_creacion">Fecha de Creación:</label>
+            {{ form.fecha_creacion }}
+        </div>
+        <div>
+            <label for="id_categoria">Categorías existentes:</label>
+            {{ form.categoria }}
+            <a href="{% url 'agregar_categoria' %}">
+                <button type="button" class="btn btn-secondary" >
+                    Agregar nueva categoría
+                </button>
+                </a>
+
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary" >Guardar Proyecto</button>
+    </form>
+        
+    </div>
+ 
+</div>
+
+<!-- Botón para direccionar a nueva categoría -->
+
+
+
+
+{% endblock %}

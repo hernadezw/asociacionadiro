@@ -1,0 +1,256 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Adiro</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+        </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'index' %}"> <img src="{% static 'assets/img/logo.png' %} " alt="..." /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item dropdown" href="#about"> 
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Quienes somos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                              <li><a class="dropdown-item" href="#history">Fundación</a></li>
+                              <li><a class="dropdown-item" href="#contactanos">Nuestra ubicación</a></li>
+                              <li><a class="dropdown-item" href="#about">Misión, visión y valores</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown" href="#about"> 
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Qué hacemos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                              <li><a class="dropdown-item" href="#portfolio">Proyectos</a></li>
+                              <li><a class="dropdown-item" href="#contactanos">Alcance</a></li>
+                              <li><a class="dropdown-item" href="#about">Impacto</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown" href="#about"> 
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Únete
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                              <li><a class="dropdown-item" href="#history">Donaciones</a></li>
+                              <li><a class="dropdown-item" href="#contactanos">Asociaciones aliadas</a></li>
+                              <li><a class="dropdown-item" href="#about">Únete al equipo</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown" href="#about"> 
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Contáctanos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                              <li><a class="dropdown-item" href="#history">Ubicación</a></li>
+                              <li><a class="dropdown-item" href="#contactanos">Galería</a></li>
+                              <li><a class="dropdown-item" href="#about">Noticias</a></li>
+                            </ul>
+                        </li>
+                        <ul>
+                          <a class="btn btn-secondary"  href="{% url 'login' %}">Iniciar sesión</a>
+                        </ul>
+                        <!-- <li class="nav-item"><a class="nav-link" href="#about">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">Proyectos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#history">Historia</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contactanos</a></li> -->
+                       
+                      
+                        
+                    </ul>
+                </div>
+            </div>
+            
+        </nav>
+
+
+
+        
+    
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Asociacion ADIRO</div>
+                <div class="masthead-heading text-uppercase" >Sembrando vida, cosechando futuro</div>
+                <a class="btn btn-warning btn-xl text-uppercase "  href="{% url 'donar' %}">Donaciones</a>
+            </div>
+            
+
+        </header>
+        {% block content %}
+        <!-- Este bloque será sobrescrito en las plantillas que extienden este archivo -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+        {% endblock %}
+        <footer class="footer py-4"></footer>
+            <div class="container">
+               
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; ADIRO 2024</div>
+                                   
+            </div>
+            <section class="">
+                <div class="container text-center text-md-start mt-2">
+                  <!-- Grid row -->
+                  <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                      <!-- Content -->
+                      <h6 class="text-uppercase fw-bold mb-4">
+                        <i class="fas fa-gem me-3"></i>ADIRO
+                      </h6>
+                      <p>
+                        ASOCIACIÓN DE
+                        DESARROLLO INTEGRAL
+                        RURAL DE OCCIDENTE
+                        -ADIRO-
+                      </p>
+                    </div>
+                    <!-- Grid column -->
+            
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                      <!-- Links -->
+                      <h6 class="text-uppercase fw-bold mb-4">
+                        Quienes somos
+                      </h6>
+                      <p>
+                        <a href="#!" class="text-reset">Fundación</a>
+                      </p>
+                      <p>
+                        <a href="#!" class="text-reset">Nuestra ubicación</a>
+                      </p>
+                      <p>
+                        <a href="#!" class="text-reset">Misión, visión y valores</a>
+                      </p>
+                     
+                    </div>
+                    <!-- Grid column -->
+            
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                      <!-- Links -->
+                      <h6 class="text-uppercase fw-bold mb-4">
+                        QUÉ HACEMOS
+                      </h6>
+                      <p>
+                        <a href="#!" class="text-reset">Proyecto</a>
+                      </p>
+                      <p>
+                        <a href="#!" class="text-reset">Alcance</a>
+                      </p>
+                      <p>
+                        <a href="#!" class="text-reset">Impacto</a>
+                      </p>
+                    
+                    </div>
+                    <!-- Grid column -->
+            
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                          ÚNETE
+                        </h6>
+                        <p>
+                          <a href="#!" class="text-reset">Donaciones</a>
+                        </p>
+                        <p>
+                          <a href="#!" class="text-reset">Asociacines aliadas</a>
+                        </p>
+                        <p>
+                          <a href="#!" class="text-reset">Únete al equipo</a>
+                        </p>
+                      
+                      </div>
+                    <!-- Grid column -->
+                  </div>
+                  <!-- Grid row -->
+                </div>
+              </section>
+                 <!-- Section: Social media -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <!-- Left -->
+        <div class="me-5 d-none d-lg-block">
+          <span>ParajeLaColina,CantónXantun,Totonicapán,Totonicapán</span>
+        </div>
+        <!-- Left -->
+    
+        <!-- Right -->
+        <div>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <!-- Right -->
+      </section>
+      <!-- Section: Social media -->
+    
+      <!-- Section: Links  -->
+      
+      <!-- Section: Links  -->
+    
+      <!-- Copyright -->
+      <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2024 Copyright:
+        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">asociacionadiro.com</a>
+      </div>
+      <!-- Copyright -->
+        </footer>
