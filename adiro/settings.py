@@ -97,7 +97,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'adiro',
-        'USER': 'tu_usuario',
+        'USER': 'adiro',
         'PASSWORD': 'administracion-2025-Adiro',
         'HOST': 'localhost',
         'PORT': '5432',
