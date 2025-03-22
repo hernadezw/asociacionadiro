@@ -22,88 +22,7 @@
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
         </head>
-    {% comment %} <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand" href="{% url 'index' %}"> <img src="{% static 'assets/img/logo.png' %} " alt="..." /></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars ms-1"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item dropdown" href="#about"> 
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Quienes somos
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                              <li><a class="dropdown-item" href="#history">Fundación</a></li>
-                              <li><a class="dropdown-item" href="#contactanos">Nuestra ubicación</a></li>
-                              <li><a class="dropdown-item" href="#about">Misión, visión y valores</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown" href="#about"> 
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Qué hacemos
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                              <li><a class="dropdown-item" href="#portfolio">Proyectos</a></li>
-                              <li><a class="dropdown-item" href="#contactanos">Alcance</a></li>
-                              <li><a class="dropdown-item" href="#about">Impacto</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown" href="#about"> 
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Únete
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                              <li><a class="dropdown-item" href="#history">Donaciones</a></li>
-                              <li><a class="dropdown-item" href="#contactanos">Asociaciones aliadas</a></li>
-                              <li><a class="dropdown-item" href="#about">Únete al equipo</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown" href="#about"> 
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Contáctanos
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                              <li><a class="dropdown-item" href="#history">Ubicación</a></li>
-                              <li><a class="dropdown-item" href="#contactanos">Galería</a></li>
-                              <li><a class="dropdown-item" href="#about">Noticias</a></li>
-                            </ul>
-                        </li>
-                        <ul>
-                          <a class="btn btn-secondary"  href="{% url 'login' %}">Iniciar sesión</a>
-                        </ul>
-                        <!-- <li class="nav-item"><a class="nav-link" href="#about">Nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Proyectos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#history">Historia</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contactanos</a></li> -->
-                       
-                      
-                        
-                    </ul>
-                </div>
-            </div>
-            
-        </nav>
-
-
-
-        
     
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container">
-                <div class="masthead-subheading">Asociacion ADIRO</div>
-                <div class="masthead-heading text-uppercase" >Sembrando vida, cosechando futuro</div>
-                <a class="btn btn-warning btn-xl text-uppercase "  href="{% url 'donar' %}">Donaciones</a>
-            </div>
-            
-
-        </header> {% endcomment %}
         <body>  
           <!-- Navbar -->
           <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -158,28 +77,78 @@
                   <a href="{% url 'login' %}" class="btn btn-outline-light">Iniciar Sesión</a>
               </div>
           </nav>
+          <style>
+            /* Contenedor que limita el área visible de la imagen */
+            .imagen-recortada {
+                width: 100%;           /* Tamaño del contenedor */
+                height: 400px;          /* Tamaño del contenedor */
+                overflow: hidden;       /* Oculta las partes de la imagen que se salen del contenedor */
+                position: relative;     /* Necesario para la propiedad de posicionamiento */
+            }
+    
+            /* Imagen dentro del contenedor */
+            .imagen-recortada img {
+                width: 100%;            /* Estira la imagen a 100% del ancho del contenedor */
+                height: 100%;           /* Estira la imagen a 100% del alto del contenedor */
+                object-fit: cover;      /* Cubre completamente el contenedor sin distorsionar la imagen */
+                object-position: center; /* Centra la imagen dentro del contenedor */
+            }
+
+            /* Capa semitransparente sobre la imagen */
+            .capa {
+                position: absolute;     /* Posiciona la capa sobre la imagen */
+                top: 0; left: 0;        /* La capa ocupa todo el contenedor */
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);  /* Capa semitransparente */
+                }
+        </style>
           <!-- Carousel -->
           <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="https://cdn.pixabay.com/photo/2017/11/06/08/42/personal-2923048_960_720.jpg" class="d-block w-100" alt="Proyecto Comunitario 1">
+                    <div class="imagen-recortada">
+                     <img src="https://cdn.pixabay.com/photo/2022/07/04/10/45/garden-radish-7300875_1280.jpg"  class="d-block w-100"  alt="Proyecto Comunitario 1">
+                    </div>
+                  </div>
+                <div class="carousel-item">
+                   <div class="imagen-recortada">
+                      <img src="https://cdn.pixabay.com/photo/2021/06/20/12/22/coffee-6350849_1280.jpg" class="d-block w-100"   class="d-block w-100" alt="Proyecto Comunitario 2">
+                    </div>
+                  </div>
+                <div class="carousel-item">
+                  <div class="imagen-recortada">
+                    <img src="https://cdn.pixabay.com/photo/2020/06/01/09/53/water-5245994_1280.jpg" class="d-block w-100" alt="Proyecto Comunitario 3">
+                    </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="https://cdn.pixabay.com/photo/2017/11/06/08/42/personal-2923048_960_720.jpg" class="d-block w-100" alt="Proyecto Comunitario 2">
+                  <div class="imagen-recortada">
+                    <img src="https://cdn.pixabay.com/photo/2016/11/19/15/38/craftsman-1839920_1280.jpg" class="d-block w-100" alt="Proyecto Comunitario 4">
+                    </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="https://cdn.pixabay.com/photo/2017/11/06/08/42/personal-2923048_960_720.jpg" class="d-block w-100" alt="Proyecto Comunitario 3">
+                  <div class="imagen-recortada">
+                    <img src="https://cdn.pixabay.com/photo/2017/03/27/14/33/ancient-2179091_1280.jpg" class="d-block w-100" alt="Proyecto Comunitario 5">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="imagen-recortada">
+                    <img src="https://cdn.pixabay.com/photo/2016/08/03/01/09/carrot-1565597_1280.jpg" class="d-block w-100" alt="Proyecto Comunitario 6">
+                    </div>
                 </div>
             </div>
+             <!-- Capa semitransparente sobre la imagen -->
+        <div class="capa"></div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
                 <span class="carousel-control-next-icon"></span>
             </button>
+
             <!-- Botón en medio del carousel -->
             <div class="carousel-caption d-flex justify-content-center align-items-center" style="height: 100%;">
-                <a href="{% url 'donar' %}" class="btn btn-primary btn-lg">Donar</a>
+                <a href="{% url 'donar' %}" class="btn btn-primary btn-lg">Donaciones</a>
             </div>
           </div>
 
