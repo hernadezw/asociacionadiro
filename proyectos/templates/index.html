@@ -78,118 +78,82 @@
                     <h3 class="section-subheading text-muted">Areas de Acción</h3>
                 </div>
                 <style>
-                    .img-standard {
-                        width: 100%;
-                        height: 250px;
-                        object-fit: cover;
-                        border-radius: 5px;
-                    }
+
                 </style>
                 <div class="row">
-                    
                     {% for categoria, proyectos in proyecto.items %}
-                    <h2 style="text-align: center;" > Categoria {{ categoria.nombre }}</h2>
-                    {% for i in proyectos %}
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        
-                        <!-- Portfolio item 1-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-tree fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src=" {{ i.imagen.url }}" class="card-img-top" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                                       
-                                <div class="portfolio-caption-heading"> {{ i.nombre }}</div>
-                                <div class="portfolio-caption-subheading text-muted">{{ i.descripcion|truncatewords:8 }}</div>
-                              
-                            
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    {% endfor %}
-                  
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 2-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-egg fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="{% static 'assets/img/portfolio/2.jpg'   %}" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Mi pequeña granja</div>
-                                <div class="portfolio-caption-subheading text-muted">Proyecto granjas </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 3-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-laptop fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="{% static 'assets/img/portfolio/3.jpg'   %}" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Utiles escolares</div>
-                                <div class="portfolio-caption-subheading text-muted">Proyecto utilies escolares en escuelas de la com....</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                        <!-- Portfolio item 4-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-cubes-stacked fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="{% static 'assets/img/portfolio/4.jpg'   %}" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Micro empresarios</div>
-                                <div class="portfolio-caption-subheading text-muted">Proyectos para microempresarios</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                        <!-- Portfolio item 5-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-water fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="{% static 'assets/img/portfolio/5.jpg'   %}" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Mejoramiento de red de agua potable</div>
-                                <div class="portfolio-caption-subheading text-muted">detalles del proyecto.....</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <!-- Portfolio item 6-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-vial-virus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="{% static 'assets/img/portfolio/6.jpg'   %}" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Mejoramiento de red de drenajes</div>
-                                <div class="portfolio-caption-subheading text-muted">Breve descripción</div>
+    <h2 style="text-align: center;"> Categoria {{ categoria.nombre }}</h2>
+    {% for i in proyectos %}
+    <div class="col-lg-4 col-sm-6 mb-4">
+        
+        <!-- Portfolio item -->
+        <div class="portfolio-item">
+            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal{{ i.id }}">
+                <div class="portfolio-hover">
+                    <div class="portfolio-hover-content"><i class="fas fa-tree fa-3x"></i></div>
+                </div>
+                <div class="imagen-recortada">
+                    <img class="img-fluid" src="{{ i.imagen.url }}" class="card-img-top" alt="..." />
+                </div>
+            </a>
+            <div class="portfolio-caption">
+                <div class="portfolio-caption-heading">{{ i.nombre }}</div>
+                <div class="portfolio-caption-subheading text-muted">{{ i.descripcion|truncatewords:8 }}</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para cada proyecto -->
+    <div class="portfolio-modal modal fade" id="portfolioModal{{ i.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal">
+                    <img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" />
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project details -->
+                                <h2 class="text-uppercase">{{ i.nombre }}</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="{{ i.imagen.url }}" alt="..." />
+                                <p>{{ i.descripcion }}</p>
+                                <p>{{ i.categoria }}</p>
+                                <ul class="list-inline">
+                                    <li>
+                                        <strong>Fecha de proyecto:</strong>
+                                        Threads
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Cerrar
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+
+
+
+                    {% endfor %}
+                    {% endfor %}
+                  
+                
+                 
+                  
+                </div>
+            </div>
         </section>
+
+
+
+        
      
         <!-- About-->
         <section class="page-section" id="history">
@@ -388,52 +352,7 @@
   <!-- Footer -->
         <!-- Portfolio Modals-->
         <!-- Portfolio item 1 modal popup-->
-       
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-          
-            <div class="modal-dialog">
-               
-                <div class="modal-content">
-                   
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}" alt="Close modal" /></div>
-                    
-                    <div class="container">
-                        
-                        <div class="row justify-content-center">
-                           
-                            <div class="col-lg-8">
-                               
-                                <div class="modal-body">
-                                    {% for i in proyecto %}
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">{{ i.nombre }}</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="{{ i.imagen.url }}" alt="..." />
-                                    <p>{{ i.descripcion }}</p>
-                                    <p>{{ i.categoria }}</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Fecha de proyecto:</strong>
-                                            Threads
-                                        </li>
-                                      
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Cerrar
-                                    </button>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                      
-                    </div>
-                   
-                </div>
-             
-            </div>
-           
-        </div>
+
         
         <!-- Portfolio item 2 modal popup-->
         <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
