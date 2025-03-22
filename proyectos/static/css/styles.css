@@ -11354,3 +11354,59 @@ h1 {
   object-fit: cover; /* Ajusta la imagen para que cubra el espacio sin deformarse */
   border-radius: 5px; /* Opcional: agrega bordes redondeados */
 }
+
+.img-standard {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+      /* Contenedor que limita el área visible de la imagen */
+.imagen-recortada {
+  width: 100%;           /* Tamaño del contenedor */
+  height: 275px;          /* Tamaño del contenedor */
+  overflow: hidden;       /* Oculta las partes de la imagen que se salen del contenedor */
+  position: relative;     /* Necesario para la propiedad de posicionamiento */
+}
+
+/* Imagen dentro del contenedor */
+.imagen-recortada img {
+  width: 100%;            /* Estira la imagen a 100% del ancho del contenedor */
+  height: 100%;           /* Estira la imagen a 100% del alto del contenedor */
+  object-fit: cover;      /* Cubre completamente el contenedor sin distorsionar la imagen */
+  object-position: center; /* Centra la imagen dentro del contenedor */
+}
+
+/* Capa semitransparente sobre la imagen */
+.capa {
+  position: absolute;     /* Posiciona la capa sobre la imagen */
+  top: 0; left: 0;        /* La capa ocupa todo el contenedor */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);  /* Capa semitransparente */
+  }
+
+   /* Contenedor que limita el área visible de la imagen */
+   .imagen-recortada {
+    width: 100%;           /* Tamaño del contenedor */
+    height: 400px;          /* Tamaño del contenedor */
+    overflow: hidden;       /* Oculta las partes de la imagen que se salen del contenedor */
+    position: relative;     /* Necesario para la propiedad de posicionamiento */
+}
+
+/* Imagen dentro del contenedor */
+.imagen-recortada img {
+    width: 100%;            /* Estira la imagen a 100% del ancho del contenedor */
+    height: 100%;           /* Estira la imagen a 100% del alto del contenedor */
+    object-fit: cover;      /* Cubre completamente el contenedor sin distorsionar la imagen */
+    object-position: center; /* Centra la imagen dentro del contenedor */
+}
+
+/* Capa semitransparente sobre la imagen */
+.capa {
+    position: absolute;     /* Posiciona la capa sobre la imagen */
+    top: 0; left: 0;        /* La capa ocupa todo el contenedor */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);  /* Capa semitransparente */
+    }
